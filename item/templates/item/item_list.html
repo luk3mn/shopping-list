@@ -1,2 +1,25 @@
 <!-- Herda o html do 'base.html' presente no app 'main' -->
 {% extends 'main/base.html' %}
+
+<!-- Cria um bloco exclusivo de 'item_list' com o nome 'content' -->
+{% block content %}
+    <a href="{% url 'item.novo' %}">Novo</a>
+    <table border="2">
+        <thead>
+            <tr>
+                <th>Descrição</th>
+                <th>Data Adicao</th>
+                <th>Checado</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for item in object_list %}
+            <tr>
+                <td>{{ item.nome_item }}</td>
+                <td>{{ item.data_adicao }}</td>
+                <td>{{ item.checado }}</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+{% endblock content %}

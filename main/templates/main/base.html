@@ -11,5 +11,8 @@
         <li><a href="{% url 'home' %}">Home</a></li>
         <li><a href="{% url 'item.index' %}">Item</a></li>
     </ul>
+    {% block content %}
+    <!-- Aqui vai puxar o block 'content' dos arquivos HTML que tiverem o 'content' definido e renderizá-lo -->
+    {% endblock content %}
 </body>
 </html>
