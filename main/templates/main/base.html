@@ -7,11 +7,7 @@
     <title>Shopping List - Página Principal</title>
 </head>
 <body>
-    <ul>
-        <li><a href="{% url 'home' %}">Home</a></li>
-        <li><a href="{% url 'item.index' %}">Item</a></li>
-        <li><a href="{% url 'usuario.cadastro' %}">Usuario</a></li>
-    </ul>
+    {% include 'main/menu.html' %}
     {% block content %}
     <!-- Aqui vai puxar o block 'content' dos arquivos HTML que tiverem o 'content' definido e renderizá-lo -->
     {% endblock content %}

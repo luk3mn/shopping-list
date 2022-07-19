@@ -3,6 +3,8 @@ from django.http import HttpResponse
 from django.contrib.auth.models import User
 from django.contrib import auth
 
+from usuario.utils import validar_senha
+
 # Cadastro de usuários
 def cadastro_usuario(request):
     if request.method == "GET": # se o método de requisição for "GET"
@@ -14,9 +16,10 @@ def cadastro_usuario(request):
         senha = request.POST.get('senha')
         confirmar_senha = request.POST.get('confirme-senha')
 
-        if senha != confirmar_senha: # valida se os campos senha são iguais
+        # valida se os campos senha são iguais
+        if not validar_senha(request, senha, confirmar_senha):
             return redirect('/usuarios/cadastro')
-
+        
         try:
             user = User.objects.create_user(username=usuario, password=senha) # inseri 'usuario' e 'senha' no banco de dados
             user.save() # salva as inserções
@@ -44,3 +47,8 @@ def login_usuario(request):
             return redirect('/itens')
 
     return HttpResponse('Login do usuario')
+
+# para sair da conta
+def sair(request):
+    auth.logout(request)
+    return redirect('/usuarios/login')
