@@ -3,34 +3,22 @@
 
 <!-- Cria um bloco exclusivo de 'item_list' com o nome 'content' -->
 {% block content %}
-    <form method="get">
-        <input type="text" name="pesquisar" placeholder="Buscar Item">
-        <input type="submit" value="Pesquisar">
-    </form>
-
-    <a href="{% url 'item.novo' %}">Novo</a>
-    <table border="2">
-        <thead>
-            <tr>
-                <th>Descrição</th>
-                <th>Data Adicao</th>
-                <th>Checado</th>
-                <th>Ações</th>
-            </tr>
-        </thead>
-        <tbody>
+  <div class="content">
+    <div class="input">
+      <form action="">
+        <label class="sr-only" for="add-item">Informar item</label>
+        <input type="text" id="id-item" name="item" placeholder="Informar item">
+        <button nome="adicionar">Adicionar</button>
+      </form>
+    </div>
+    <scroll-container>
+      <div class="box-list">
+        <ul>
             {% for item in object_list %}
-            <tr>
-                <td>{{ item.nome_item }}</td>
-                <td>{{ item.data_adicao|date:"d/m/Y" }}</td>
-                <td>{{ item.checado }}</td>
-                <td>
-                    <!-- Passa o nome nome da url (rota) e o parâmetro id -> Primary Key (pk) -->
-                    <a href="{% url 'item.editar' item.pk %}">Editar</a>
-                    <a href="{% url 'item.remover' item.pk %}">Remover</a>
-                </td>
-            </tr>
+                <li><input type="checkbox"><span>{{ item }}</span></li>
             {% endfor %}
-        </tbody>
-    </table>
+        </ul>
+      </div>
+    </scroll-container>
+  </div>
 {% endblock content %}
