@@ -5,7 +5,7 @@
 {% block content %}
   <div class="content">
     <div class="input">
-      <form action="">
+      <form action="{% url 'item.adicionar' %}" method="POST">{% csrf_token %}
         <label class="sr-only" for="add-item">Informar item</label>
         <input type="text" id="id-item" name="item" placeholder="Informar item">
         <button nome="adicionar">Adicionar</button>
