@@ -1,0 +1,14 @@
+<!-- Herda tudo que tem em 'base.html' -->
+{% extends 'base.html' %}
+
+{% block title %}Página Inicial{% endblock %}
+
+{% block page-name %}Lista de Compras{% endblock %}
+
+{% block content %}
+    <!-- INclui no 'Home' o html com o formulário -->
+    {% include 'item/item_form.html' %}
+
+    <!-- Inclui em 'Home' o html com a listagem de itens -->
+    {% include 'item/item_list.html' %}
+{% endblock %}

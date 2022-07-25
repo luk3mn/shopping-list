@@ -44,7 +44,7 @@ def login_usuario(request):
             return HttpResponse("Usuario não existe")
         else:
             auth.login(request, usuario_logado) # faz o login do usuario
-            return redirect('/itens')
+            return redirect('/')
 
     return HttpResponse('Login do usuario')
 

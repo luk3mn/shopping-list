@@ -1,8 +1,7 @@
-{% extends 'main/base.html' %}
-{% block form %}
-    <form method="post">
-        {% csrf_token %}
-        {{ form.as_p }}
-        <input type="submit" value="Salvar">
+<div class="input">
+    <form action="{% url 'item.adicionar' %}" method="POST">{% csrf_token %}
+        <label class="sr-only" for="add-item">Informar item</label>
+        <input type="text" id="id-item" name="item" placeholder="Informar item">
+        <button nome="adicionar">Adicionar</button>
     </form>
-{% endblock form %}
+</div>

@@ -5,7 +5,7 @@
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Lista de Compras</title>
+  <title>{% block title %}{% endblock %}</title>
   <!-- CSS -->
   <link rel="stylesheet" href="{% static 'css/main.css' %}">
   <link rel="stylesheet" href="{% static 'css/modal.css' %}">
@@ -21,13 +21,15 @@
         <img src="{% static 'img/menu.svg' %}" alt="menu" id="open">
       </div>
       <div class="title">
-        <h2>Lista de compras</h2>
+        <h2>{% block page-name %}{% endblock %}</h2>
       </div>
     </div>
   </header>
   <main class="page-body">
     <div class="container">
-      {% block content %}{% endblock %}
+      <div class="content">
+        {% block content %}{% endblock %}
+      </div>
     </div>
     <!-- Rodapé -->
     <div class="rodape">
@@ -44,6 +46,8 @@
       <div class="modal-content">
         <ul>
           <li><a href="#">{{ user }}</a></li>
+          <li><a href="{% url 'item.home' %}">Home</a></li>
+          <li><a href="{% url 'item.about' %}">Sobre</a></li>
           <li><a href="{% url 'usuario.sair' %}">Sair</a></li>
         </ul>
       </div>
