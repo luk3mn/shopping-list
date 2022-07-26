@@ -1,8 +1,22 @@
+{% load static %}
 <scroll-container>
   <div class="box-list">
     <ul>
         {% for item in itens %}
-            <li><input type="checkbox"><span>{{ item }}</span></li>
+            <li>
+              <div>
+                <input type="checkbox" {% if item.checado %}checked{% endif %}>
+                <span>{{ item }}</span>
+              </div>
+              <div>
+                <a href="{% url 'item.verificar' item.id %}">
+                  <img src="{% static 'img/check.png' %}" width="25" alt="">
+                </a>
+                <a href="{% url 'item.remover' item.id %}">
+                  <img src="{% static 'img/trash.png' %}" width="25" alt="">
+                </a>
+              </div>
+            </li>
         {% endfor %}
     </ul>
   </div>

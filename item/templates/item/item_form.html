@@ -1,5 +1,5 @@
 <div class="input">
-    <form action="{% url 'item.adicionar' %}" method="POST">{% csrf_token %}
+    <form action="{% url 'item.adicionar' id_usuario %}" method="POST">{% csrf_token %}
         <label class="sr-only" for="add-item">Informar item</label>
         <input type="text" id="id-item" name="item" placeholder="Informar item">
         <button nome="adicionar">Adicionar</button>

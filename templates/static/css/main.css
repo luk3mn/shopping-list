@@ -162,7 +162,8 @@
   .container .content .box-list ul li {
     display: flex;
     align-items: center;
-  
+    justify-content: space-between;
+
     list-style: none;
     font-size: 18px;
     font-weight: 500;
