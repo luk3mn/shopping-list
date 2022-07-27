@@ -49,19 +49,28 @@
     padding: 0 1rem;
   }
   
-  .header .message-return .msg-error {
+  .header .message-return .msg-error,
+  .header .message-return .msg-success {
     display: grid;
     align-items: center;
   
     width: 100%;
     height: 2rem;
     border-radius: 1rem;
-    background-color: rgba(211, 87, 87, 0.829);
   
     font-size: 14px;
     font-weight: 700;
-    color: rgba(61, 58, 59, 0.699);
     text-align: center;
+  }
+
+  .header .message-return .msg-error {
+    background-color: rgba(211, 87, 87, 0.829);
+    color: rgba(61, 58, 59, 0.699);
+  }
+
+  .header .message-return .msg-success {
+    background-color: rgba(87, 211, 97, 0.801);
+    color: rgba(61, 58, 59, 0.699);
   }
   
   /* PLANO DE FUNDO */
@@ -173,6 +182,10 @@
   .container .content .box-list ul li span,
   .container .content .box-list ul li input {
     margin: 0 .3rem;
+  }
+
+  .container .content .box-list ul li div img {
+    margin: 0 .4rem;
   }
   
   /* PARA LEITOR DE TELA */

@@ -6,6 +6,7 @@
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="shortcut icon" href="{% static 'img/checklist.ico' %}" type="image/x-icon">
   <title>{% block titulo %}{% endblock %}</title>
 
   <!-- Arquivos estáticos -->
@@ -22,11 +23,22 @@
       
       <div class="title">
         <div class="message-return">
-          <div class="msg-error">
-            
-          </div>
+          {% if messages %}
+            {% for message in messages %}
+              <div class="msg-{{message.tags}}">
+                {{ message }}
+              </div>
+            {% endfor %}
+          {% endif %}
         </div>
-        <h2>Login</h2>
+
+        <!-- <div class="message-return">
+              <div class="msg-success">
+                TESTE
+              </div>
+        </div> -->
+
+        {% block title %}{% endblock %}
       </div>
     </div>
   </header>
