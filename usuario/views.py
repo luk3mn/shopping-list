@@ -26,13 +26,10 @@ def cadastro_usuario(request):
         if not validar_campos(request=request, usuario=usuario, senha=senha, confirme_senha=confirmar_senha):
             return redirect('/usuarios/cadastro')
 
-        usuario_cad = User.objects.filter(username=usuario)
-        print(type(usuario_cad), type(usuario))
-        return HttpResponse(usuario_cad)
-        # if usuario == usuario_cad:
-            # messages.add_message(request, constants.ERROR, 'Usuário já existe!')
-            # return redirect('/usuarios/cadastro')
-        # for user in usuarios:
+        # valida se usuario já existe no banco de dados
+        if User.objects.filter(username=usuario):
+            messages.add_message(request, constants.ERROR, 'Usuário já existe!')
+            return redirect('/usuarios/cadastro')
 
         try:
             user = User.objects.create_user(username=usuario, password=senha) # inseri 'usuario' e 'senha' no banco de dados

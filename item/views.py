@@ -1,4 +1,4 @@
-from django.http import HttpResponse
+from django.http import Http404, HttpResponse
 from django.shortcuts import get_object_or_404, redirect, render
 from django.urls import reverse
 from datetime import date
@@ -43,12 +43,13 @@ def adicionar_item(request, id_usuario):
 @login_required(login_url='/usuarios/login/')
 def remover_item(request, id_item):
     item = get_object_or_404(Item, id=id_item)
+
     if id_item == item.id:
-        marcar_item = Item(id=id_item) # remove o item do banco
-        marcar_item.save() # salva no banco de dados
-        return redirect('/')
+        item.delete() # remove item associado ao id
     else:
-        return HttpResponse("Não existe")
+        return Http404()
+
+    return redirect('/')
 
 @login_required(login_url='/usuarios/login/')
 def verificar_item(request, id_item):
@@ -60,6 +61,4 @@ def verificar_item(request, id_item):
     return redirect('/') # redireciona para o index
 
 # ANOTAÇÔES:
-# - Terminar a validação do 'Usuário já Existe'
-# - Verificar a opção de remover
 # - Melhorar a visualização da lista

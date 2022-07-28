@@ -17,7 +17,6 @@
   body {
     background: var(--bg-primary);
     height: 100vh;
-    /* border: 5px solid blue; */
   }
   
   /* TITULO E MENU DE OPÇÕES */
@@ -29,7 +28,6 @@
   
   .header .title {
     display: grid;
-    /* border: 3px solid red; */
     height: 150px;
   }
   
@@ -172,7 +170,7 @@
     display: flex;
     align-items: center;
     justify-content: space-between;
-
+    
     list-style: none;
     font-size: 18px;
     font-weight: 500;
@@ -181,7 +179,7 @@
   
   .container .content .box-list ul li span,
   .container .content .box-list ul li input {
-    margin: 0 .3rem;
+    margin: 0 .1rem;
   }
 
   .container .content .box-list ul li div img {
@@ -201,13 +199,7 @@
   }
   
   /* RODAPÉ */
-  .rodape footer { /* tentar corrigir */
-    /* grid-area: footer; */
-  
-    /* border: 1px solid red; */
-    /* position: static;
-    width: 100%;
-    bottom: 0; */
+  .rodape footer {
     text-align: center;
     font-weight: 500;
     color: var(--bg-list);
@@ -235,7 +227,6 @@
   }
   
   /* FLEXBOX */
-  
   .page-body {
     display: flex;
     flex-direction: column;
@@ -243,16 +234,6 @@
     align-items: stretch;
     align-content: flex-start;
   
-    /* background-color: #001; */
     width: 100%;
     height: 66%;
-    /* border: 2px solid #fff; */
   }
-  
-  /* .page-body .container {
-    flex: 1;
-  }
-  
-  .page-body .rodape {
-    flex-grow: 0;
-  } */
