@@ -13,7 +13,7 @@ https://docs.djangoproject.com/en/4.0/ref/settings/
 from pathlib import Path
 from dotenv import load_dotenv
 import os
-# import django_heroku
+import django_heroku
 
 # PARA CARREGAR AS VARIÁVEIS DE AMBIENTE VIRTUAL
 load_dotenv()
@@ -31,8 +31,8 @@ SECRET_KEY = os.getenv('SECRET_KEY')
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = os.getenv('DEBUG', False)
 
-ALLOWED_HOSTS = ['*']
-# ALLOWED_HOSTS = ['shopping-list-luke.herokuapp.com']
+# ALLOWED_HOSTS = ['*']
+ALLOWED_HOSTS = ['https://shopping-list-luke.herokuapp.com/']
 
 
 # Application definition
@@ -139,4 +139,4 @@ STATIC_ROOT = os.path.join('static')
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
-# django_heroku.settings(locals())
+django_heroku.settings(locals())
