@@ -15,13 +15,13 @@
 <div class="content">
     <section class="form-input">
       <form action="{% url 'usuario.cadastro' %}" method="POST">{% csrf_token %}
-        <label class="sr-only" for="user">Criar usuário</label>
-        <input name="usuario" type="text" id="user" placeholder="Criar usuário">
-        <label class="sr-only" for="pass">Criar senha</label>
-        <input name="senha" type="password" id="pass" placeholder="Criar senha">
-        <label class="sr-only" for="pass2">Repita sua senha</label>
-        <input name="confirme-senha" type="password" id="pas2" placeholder="Repita sua senha">
-        <button name="create">Criar conta</button>
+        <label class="sr-only" for="user">Create username</label>
+        <input name="usuario" type="text" id="user" placeholder="Create username">
+        <label class="sr-only" for="pass">Create password</label>
+        <input name="senha" type="password" id="pass" placeholder="Create password">
+        <label class="sr-only" for="pass2">Repeat your password</label>
+        <input name="confirme-senha" type="password" id="pas2" placeholder="Repeat your password">
+        <button name="create">Create Accound</button>
       </form>
     </section>
     
@@ -33,7 +33,7 @@
 
     <section class="create">
       <a href="{% url 'usuario.login' %}">
-        <button>Entrar</button>
+        <button>LOGIN</button>
       </a>
     </section>
   </div>

@@ -15,11 +15,11 @@
   <div class="content">
     <section class="form-input">
       <form action="{% url 'usuario.login' %}" method="POST">{% csrf_token %}
-        <label class="sr-only" for="user">Usuário</label>
-        <input type="text" name="usuario" id="user" placeholder="Usuário">
-        <label class="sr-only" for="pass">Senha</label>
-        <input type="password" name="senha" id="pass" placeholder="Senha">
-        <button name="entrar">Entrar</button>
+        <label class="sr-only" for="user">Username</label>
+        <input type="text" name="usuario" id="user" placeholder="Username">
+        <label class="sr-only" for="pass">Password</label>
+        <input type="password" name="senha" id="pass" placeholder="Password">
+        <button name="entrar">Login</button>
       </form>
     </section>
     
@@ -31,7 +31,7 @@
 
     <section class="create">
       <a href="{% url 'usuario.cadastro' %}">
-        <button>CRIAR CONTA</button>
+        <button>CREATE ACCOUNT</button>
       </a>
     </section>
   </div>
