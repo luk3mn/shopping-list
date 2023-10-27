@@ -28,16 +28,16 @@ def cadastro_usuario(request):
 
         # valida se usuario já existe no banco de dados
         if User.objects.filter(username=usuario):
-            messages.add_message(request, constants.ERROR, 'Usuário já existe!')
+            messages.add_message(request, constants.ERROR, 'Sorry! but the user already exists, better luck next time!!')
             return redirect('/usuarios/cadastro')
 
         try:
             user = User.objects.create_user(username=usuario, password=senha) # inseri 'usuario' e 'senha' no banco de dados
             user.save() # salva as inserções
-            messages.add_message(request, constants.SUCCESS, 'Usuário cadastrado com sucesso')
+            messages.add_message(request, constants.SUCCESS, 'Awesome! The user has been created successful')
             return redirect('/usuarios/login') # redireciona para login se não der nenhum erro
         except:
-            messages.add_message(request, constants.ERROR, 'Erro Interno do Sistema')
+            messages.add_message(request, constants.ERROR, 'Something went wrong')
             return redirect('/usuarios/login/')
 
 # login de usuários
@@ -58,7 +58,7 @@ def login_usuario(request):
         usuario_logado = auth.authenticate(username=usuario, password=senha)
 
         if not usuario_logado:
-            messages.add_message(request, constants.ERROR, 'Usuário e/ou Senha incorretos')
+            messages.add_message(request, constants.ERROR, "Sorry, we couldn't find an account with that username or password!")
             return redirect('/usuarios/login/')
         else:
             auth.login(request, usuario_logado) # faz o login do usuario
