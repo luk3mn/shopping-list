@@ -1,0 +1,50 @@
+.box-modal {
+  position: absolute;
+  height: 100%;
+  top: 0;
+  left: 0;
+  background-color: rgba(75, 68, 89, 0.9);
+
+  /* APLICA O EFIETO DE CLOSE */
+  width: 0;
+  overflow: hidden;
+  transition: .5s;
+}
+
+.box-modal .modal {
+  width: 80%;
+  margin: auto;
+}
+
+.box-modal .modal .modal-header {
+  display: flex;
+  justify-content: flex-end;
+}
+
+.box-modal .modal .modal-header .close {
+  background: url('../img/close.svg') no-repeat;
+  background-position: right;
+  width: 2rem;
+  height: 2rem;
+  margin: .7rem 0;
+}
+
+.box-modal .modal .modal-content ul li {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  list-style: none;
+  padding: 1.3rem 0;
+  width: 80%;
+  margin: 3rem auto;
+}
+
+.box-modal .modal .modal-content ul li a {
+  color: var(--secondary);
+  text-align: center;
+
+  font-size: 25px;
+  font-weight: 700;
+  line-height: 0;
+}
